@@ -30,16 +30,16 @@ public:
     {
         if (About->objectName().isEmpty())
             About->setObjectName(QStringLiteral("About"));
-        About->resize(176, 68);
+        About->resize(195, 68);
         Subject = new QLabel(About);
         Subject->setObjectName(QStringLiteral("Subject"));
-        Subject->setGeometry(QRect(30, 0, 131, 21));
+        Subject->setGeometry(QRect(40, 0, 131, 21));
         Version = new QLabel(About);
         Version->setObjectName(QStringLiteral("Version"));
         Version->setGeometry(QRect(80, 20, 41, 16));
         label = new QLabel(About);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(40, 40, 110, 16));
+        label->setGeometry(QRect(40, 40, 131, 16));
 
         retranslateUi(About);
 
@@ -49,8 +49,8 @@ public:
     void retranslateUi(QDialog *About)
     {
         About->setWindowTitle(QApplication::translate("About", "Dialog", 0));
-        Subject->setText(QApplication::translate("About", "Wavefront object loader", 0));
-        Version->setText(QApplication::translate("About", "v 0.12", 0));
+        Subject->setText(QApplication::translate("About", "Spring Force simulator", 0));
+        Version->setText(QApplication::translate("About", "v 0.1", 0));
         label->setText(QApplication::translate("About", "By Emmanuel Renquin", 0));
     } // retranslateUi
 

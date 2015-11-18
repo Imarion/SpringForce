@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>480</height>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -218,8 +218,8 @@
      <rect>
       <x>300</x>
       <y>120</y>
-      <width>46</width>
-      <height>13</height>
+      <width>51</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
@@ -268,7 +268,7 @@
      <string>Auto</string>
     </property>
     <property name="checked">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <attribute name="buttonGroup">
      <string notr="true">rotateButtonGroup</string>
@@ -314,9 +314,244 @@
      <property name="text">
       <string>Manual</string>
      </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
      <attribute name="buttonGroup">
       <string notr="true">rotateButtonGroup</string>
      </attribute>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="springForceSimulationGroupBox">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>601</width>
+      <height>161</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Spring force simulation</string>
+    </property>
+    <widget class="QRadioButton" name="springForceSimulationOff">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Off</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">springForceActiveGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QRadioButton" name="springForceSimulationOn">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>20</y>
+       <width>51</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>On</string>
+     </property>
+     <property name="checked">
+      <bool>false</bool>
+     </property>
+     <attribute name="buttonGroup">
+      <string notr="true">springForceActiveGroup</string>
+     </attribute>
+    </widget>
+    <widget class="QLineEdit" name="springForceSimulationAmplitudeEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>81</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>1,0</string>
+     </property>
+     <property name="maxLength">
+      <number>7</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>81</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Amplitude (A)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>111</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Spring constant (k)</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="springForceSimulationConstantEdit">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>130</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>81,75</string>
+     </property>
+     <property name="maxLength">
+      <number>10</number>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="springForceSimulationObjectMassEdit">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>130</y>
+       <width>113</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>100</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>110</y>
+       <width>101</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Object mass (m)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>20</y>
+       <width>261</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Base formula: x = A cos (w t); w=sqrt(k/m)</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>60</y>
+       <width>61</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Apply on:</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="springForceSimulationApplyOnTranslationCb">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Translation</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="springForceSimulationApplyOnScaleCb">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>80</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Scale</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="springForceSimulationApplyOnTextureCb">
+     <property name="geometry">
+      <rect>
+       <x>180</x>
+       <y>80</y>
+       <width>111</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Texture (scale)</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>80</y>
+       <width>201</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>none</string>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="springForceSimulationLoadTextureBtn">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>50</y>
+       <width>111</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Load texture</string>
+     </property>
     </widget>
    </widget>
    <zorder>rotateFrame</zorder>
@@ -333,6 +568,7 @@
    <zorder>scaleStepLineEdit</zorder>
    <zorder>label_5</zorder>
    <zorder>autoRotateRadioButton</zorder>
+   <zorder>springForceSimulationGroupBox</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -340,7 +576,7 @@
      <x>0</x>
      <y>0</y>
      <width>640</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -373,7 +609,8 @@
  <resources/>
  <connections/>
  <buttongroups>
-  <buttongroup name="rotateButtonGroup"/>
   <buttongroup name="scaleButtonGroup"/>
+  <buttongroup name="rotateButtonGroup"/>
+  <buttongroup name="springForceActiveGroup"/>
  </buttongroups>
 </ui>

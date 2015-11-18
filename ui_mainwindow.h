@@ -13,14 +13,17 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
@@ -50,18 +53,35 @@ public:
     QFrame *rotateFrame;
     QLabel *rotateFrameLabel;
     QRadioButton *manualRotateRadioButton;
+    QGroupBox *springForceSimulationGroupBox;
+    QRadioButton *springForceSimulationOff;
+    QRadioButton *springForceSimulationOn;
+    QLineEdit *springForceSimulationAmplitudeEdit;
+    QLabel *label;
+    QLabel *label_6;
+    QLineEdit *springForceSimulationConstantEdit;
+    QLineEdit *springForceSimulationObjectMassEdit;
+    QLabel *label_7;
+    QLabel *label_8;
+    QLabel *label_9;
+    QCheckBox *springForceSimulationApplyOnTranslationCb;
+    QCheckBox *springForceSimulationApplyOnScaleCb;
+    QCheckBox *springForceSimulationApplyOnTextureCb;
+    QLineEdit *lineEdit;
+    QPushButton *springForceSimulationLoadTextureBtn;
     QMenuBar *menubar;
     QMenu *menuFile;
     QMenu *menuHelp;
     QStatusBar *statusbar;
-    QButtonGroup *rotateButtonGroup;
     QButtonGroup *scaleButtonGroup;
+    QButtonGroup *rotateButtonGroup;
+    QButtonGroup *springForceActiveGroup;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(640, 480);
+        MainWindow->resize(640, 435);
         MenuFileLoad = new QAction(MainWindow);
         MenuFileLoad->setObjectName(QStringLiteral("MenuFileLoad"));
         actionAbout = new QAction(MainWindow);
@@ -129,7 +149,7 @@ public:
         scaleStepLineEdit->setMaxLength(10);
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName(QStringLiteral("label_5"));
-        label_5->setGeometry(QRect(300, 120, 46, 13));
+        label_5->setGeometry(QRect(300, 120, 51, 16));
         scaleFrame = new QFrame(centralwidget);
         scaleFrame->setObjectName(QStringLiteral("scaleFrame"));
         scaleFrame->setGeometry(QRect(10, 110, 361, 91));
@@ -144,7 +164,7 @@ public:
         rotateButtonGroup->addButton(autoRotateRadioButton);
         autoRotateRadioButton->setObjectName(QStringLiteral("autoRotateRadioButton"));
         autoRotateRadioButton->setGeometry(QRect(40, 60, 82, 18));
-        autoRotateRadioButton->setChecked(true);
+        autoRotateRadioButton->setChecked(false);
         rotateFrame = new QFrame(centralwidget);
         rotateFrame->setObjectName(QStringLiteral("rotateFrame"));
         rotateFrame->setGeometry(QRect(10, 20, 120, 71));
@@ -157,6 +177,65 @@ public:
         rotateButtonGroup->addButton(manualRotateRadioButton);
         manualRotateRadioButton->setObjectName(QStringLiteral("manualRotateRadioButton"));
         manualRotateRadioButton->setGeometry(QRect(30, 20, 82, 18));
+        manualRotateRadioButton->setChecked(true);
+        springForceSimulationGroupBox = new QGroupBox(centralwidget);
+        springForceSimulationGroupBox->setObjectName(QStringLiteral("springForceSimulationGroupBox"));
+        springForceSimulationGroupBox->setGeometry(QRect(10, 220, 601, 161));
+        springForceSimulationOff = new QRadioButton(springForceSimulationGroupBox);
+        springForceActiveGroup = new QButtonGroup(MainWindow);
+        springForceActiveGroup->setObjectName(QStringLiteral("springForceActiveGroup"));
+        springForceActiveGroup->addButton(springForceSimulationOff);
+        springForceSimulationOff->setObjectName(QStringLiteral("springForceSimulationOff"));
+        springForceSimulationOff->setGeometry(QRect(10, 20, 51, 20));
+        springForceSimulationOff->setChecked(true);
+        springForceSimulationOn = new QRadioButton(springForceSimulationGroupBox);
+        springForceActiveGroup->addButton(springForceSimulationOn);
+        springForceSimulationOn->setObjectName(QStringLiteral("springForceSimulationOn"));
+        springForceSimulationOn->setGeometry(QRect(60, 20, 51, 20));
+        springForceSimulationOn->setChecked(false);
+        springForceSimulationAmplitudeEdit = new QLineEdit(springForceSimulationGroupBox);
+        springForceSimulationAmplitudeEdit->setObjectName(QStringLiteral("springForceSimulationAmplitudeEdit"));
+        springForceSimulationAmplitudeEdit->setGeometry(QRect(10, 130, 81, 22));
+        springForceSimulationAmplitudeEdit->setMaxLength(7);
+        label = new QLabel(springForceSimulationGroupBox);
+        label->setObjectName(QStringLiteral("label"));
+        label->setGeometry(QRect(10, 110, 81, 16));
+        label_6 = new QLabel(springForceSimulationGroupBox);
+        label_6->setObjectName(QStringLiteral("label_6"));
+        label_6->setGeometry(QRect(110, 110, 111, 16));
+        springForceSimulationConstantEdit = new QLineEdit(springForceSimulationGroupBox);
+        springForceSimulationConstantEdit->setObjectName(QStringLiteral("springForceSimulationConstantEdit"));
+        springForceSimulationConstantEdit->setGeometry(QRect(110, 130, 113, 22));
+        springForceSimulationConstantEdit->setMaxLength(10);
+        springForceSimulationObjectMassEdit = new QLineEdit(springForceSimulationGroupBox);
+        springForceSimulationObjectMassEdit->setObjectName(QStringLiteral("springForceSimulationObjectMassEdit"));
+        springForceSimulationObjectMassEdit->setGeometry(QRect(240, 130, 113, 22));
+        label_7 = new QLabel(springForceSimulationGroupBox);
+        label_7->setObjectName(QStringLiteral("label_7"));
+        label_7->setGeometry(QRect(240, 110, 101, 16));
+        label_8 = new QLabel(springForceSimulationGroupBox);
+        label_8->setObjectName(QStringLiteral("label_8"));
+        label_8->setGeometry(QRect(110, 20, 261, 21));
+        label_9 = new QLabel(springForceSimulationGroupBox);
+        label_9->setObjectName(QStringLiteral("label_9"));
+        label_9->setGeometry(QRect(10, 60, 61, 16));
+        springForceSimulationApplyOnTranslationCb = new QCheckBox(springForceSimulationGroupBox);
+        springForceSimulationApplyOnTranslationCb->setObjectName(QStringLiteral("springForceSimulationApplyOnTranslationCb"));
+        springForceSimulationApplyOnTranslationCb->setGeometry(QRect(10, 80, 91, 20));
+        springForceSimulationApplyOnTranslationCb->setChecked(true);
+        springForceSimulationApplyOnScaleCb = new QCheckBox(springForceSimulationGroupBox);
+        springForceSimulationApplyOnScaleCb->setObjectName(QStringLiteral("springForceSimulationApplyOnScaleCb"));
+        springForceSimulationApplyOnScaleCb->setGeometry(QRect(110, 80, 61, 20));
+        springForceSimulationApplyOnTextureCb = new QCheckBox(springForceSimulationGroupBox);
+        springForceSimulationApplyOnTextureCb->setObjectName(QStringLiteral("springForceSimulationApplyOnTextureCb"));
+        springForceSimulationApplyOnTextureCb->setGeometry(QRect(180, 80, 111, 20));
+        lineEdit = new QLineEdit(springForceSimulationGroupBox);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setGeometry(QRect(310, 80, 201, 22));
+        lineEdit->setReadOnly(true);
+        springForceSimulationLoadTextureBtn = new QPushButton(springForceSimulationGroupBox);
+        springForceSimulationLoadTextureBtn->setObjectName(QStringLiteral("springForceSimulationLoadTextureBtn"));
+        springForceSimulationLoadTextureBtn->setGeometry(QRect(310, 50, 111, 28));
         MainWindow->setCentralWidget(centralwidget);
         rotateFrame->raise();
         scaleFrame->raise();
@@ -172,9 +251,10 @@ public:
         scaleStepLineEdit->raise();
         label_5->raise();
         autoRotateRadioButton->raise();
+        springForceSimulationGroupBox->raise();
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QStringLiteral("menubar"));
-        menubar->setGeometry(QRect(0, 0, 640, 21));
+        menubar->setGeometry(QRect(0, 0, 640, 26));
         menuFile = new QMenu(menubar);
         menuFile->setObjectName(QStringLiteral("menuFile"));
         menuHelp = new QMenu(menubar);
@@ -210,6 +290,22 @@ public:
         autoRotateRadioButton->setText(QApplication::translate("MainWindow", "Auto", 0));
         rotateFrameLabel->setText(QApplication::translate("MainWindow", "Rotate", 0));
         manualRotateRadioButton->setText(QApplication::translate("MainWindow", "Manual", 0));
+        springForceSimulationGroupBox->setTitle(QApplication::translate("MainWindow", "Spring force simulation", 0));
+        springForceSimulationOff->setText(QApplication::translate("MainWindow", "Off", 0));
+        springForceSimulationOn->setText(QApplication::translate("MainWindow", "On", 0));
+        springForceSimulationAmplitudeEdit->setText(QApplication::translate("MainWindow", "1,0", 0));
+        label->setText(QApplication::translate("MainWindow", "Amplitude (A)", 0));
+        label_6->setText(QApplication::translate("MainWindow", "Spring constant (k)", 0));
+        springForceSimulationConstantEdit->setText(QApplication::translate("MainWindow", "81,75", 0));
+        springForceSimulationObjectMassEdit->setText(QApplication::translate("MainWindow", "100", 0));
+        label_7->setText(QApplication::translate("MainWindow", "Object mass (m)", 0));
+        label_8->setText(QApplication::translate("MainWindow", "Base formula: x = A cos (w t); w=sqrt(k/m)", 0));
+        label_9->setText(QApplication::translate("MainWindow", "Apply on:", 0));
+        springForceSimulationApplyOnTranslationCb->setText(QApplication::translate("MainWindow", "Translation", 0));
+        springForceSimulationApplyOnScaleCb->setText(QApplication::translate("MainWindow", "Scale", 0));
+        springForceSimulationApplyOnTextureCb->setText(QApplication::translate("MainWindow", "Texture (scale)", 0));
+        lineEdit->setText(QApplication::translate("MainWindow", "none", 0));
+        springForceSimulationLoadTextureBtn->setText(QApplication::translate("MainWindow", "Load texture", 0));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         menuHelp->setTitle(QApplication::translate("MainWindow", "Help", 0));
     } // retranslateUi
