@@ -1,4 +1,4 @@
-#include "SpringForce.h"
+#include "SpringForceSimu.h"
 
 #include <QDebug>
 #include <QFile>

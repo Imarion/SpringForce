@@ -13,6 +13,8 @@
 
 #include "WaveFrontObject/WaveFrontObject.h"
 
+#include "SpringForce/springforce.h"
+
 //class MyWindow : public QWindow, protected QOpenGLFunctions_4_3_Core
 class GlWindow : public QWindow, protected QOpenGLFunctions
 {
@@ -85,4 +87,7 @@ private:
     static const int numDataPerFace = 3;  // only manages triangles
     QString          mObjFileName;
     WaveFrontObject  &mWaveFrontObject;
+
+    // spring force
+    SpringForce      aSpring;
 };

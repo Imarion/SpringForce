@@ -1,7 +1,7 @@
 #QT += gui-private core-private
 QT += gui core widgets opengl xml
 
-HEADERS += SpringForce.h \
+HEADERS += SpringForceSimu.h \
     Vertex/VertexData.h \
     Vertex/Vertex.h \
     Vertex/Normal.h \
@@ -12,9 +12,10 @@ HEADERS += SpringForce.h \
     about.h \
     Material/MaterialData.h \
     Material/Material.h \
-    Common/wfoutils.h
+    Common/wfoutils.h \
+    SpringForce/springforce.h
 
-SOURCES += SpringForce.cpp main.cpp \
+SOURCES += SpringForceSimu.cpp main.cpp \
     Vertex/VertexData.cpp \
     Vertex/Vertex.cpp \
     Vertex/Normal.cpp \
@@ -25,7 +26,8 @@ SOURCES += SpringForce.cpp main.cpp \
     about.cpp \
     Material/MaterialData.cpp \
     Material/Material.cpp \
-    Common/wfoutils.cpp
+    Common/wfoutils.cpp \
+    SpringForce/springforce.cpp
 
 OTHER_FILES += \
     vshader.txt \

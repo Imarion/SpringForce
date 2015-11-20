@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "SpringForce.h"
+#include "SpringForceSimu.h"
 
 namespace Ui {
 class MainWindow;
