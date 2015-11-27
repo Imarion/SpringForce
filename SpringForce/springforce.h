@@ -4,22 +4,22 @@
 class SpringForce
 {
 private:
-    float Amplitude;       /* A */
-    float SpringConstant;  /* k */
-    float ObjectMass;      /* m */
+    double Amplitude;       /* A */
+    double SpringConstant;  /* k */
+    double ObjectMass;      /* m */
 
 public:
     SpringForce();
-    SpringForce(float inAmplitude, float inSpringConstant, float inObjectMass);
+    SpringForce(double inAmplitude, double inSpringConstant, double inObjectMass);
 
-    float getAmplitude() const;
-    void  setAmplitude(float value);
-    float getSpringConstant() const;
-    void  setSpringConstant(float value);
-    float getObjectMass() const;
-    void  setObjectMass(float value);
+    double getAmplitude() const;
+    void  setAmplitude(double value);
+    double getSpringConstant() const;
+    void  setSpringConstant(double value);
+    double getObjectMass() const;
+    void  setObjectMass(double value);
 
-    float calcMotion(float t);
+    double calcMotion(double t);
 };
 
 #endif // SPRINGFORCE_H

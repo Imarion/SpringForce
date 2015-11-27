@@ -7,49 +7,49 @@
 SpringForce::SpringForce()
 {
     // values from https://answers.yahoo.com/question/index?qid=20081108201653AAReHnQ -> x = 1.20cm
-    Amplitude       = 0.0;
+    Amplitude       = 1.0;
     SpringConstant  = 81.75;
     ObjectMass      = 100;
 }
 
-SpringForce::SpringForce(float inAmplitude, float inSpringConstant, float inObjectMass)
+SpringForce::SpringForce(double inAmplitude, double inSpringConstant, double inObjectMass)
 {
     Amplitude       = inAmplitude;
     SpringConstant  = inSpringConstant;
     ObjectMass      = inObjectMass;
 }
 
-float SpringForce::getAmplitude() const
+double SpringForce::getAmplitude() const
 {
     return Amplitude;
 }
 
-void SpringForce::setAmplitude(float value)
+void SpringForce::setAmplitude(double value)
 {
     Amplitude = value;
 }
 
-float SpringForce::getSpringConstant() const
+double SpringForce::getSpringConstant() const
 {
     return SpringConstant;
 }
 
-void SpringForce::setSpringConstant(float value)
+void SpringForce::setSpringConstant(double value)
 {
     SpringConstant = value;
 }
 
-float SpringForce::getObjectMass() const
+double SpringForce::getObjectMass() const
 {
     return ObjectMass;
 }
 
-void SpringForce::setObjectMass(float value)
+void SpringForce::setObjectMass(double value)
 {
     ObjectMass = value;
 }
 
-float SpringForce::calcMotion(float t)
+double SpringForce::calcMotion(double t)
 {
     return Amplitude * qCos(qSqrt(SpringConstant/ObjectMass) * t);
 }
