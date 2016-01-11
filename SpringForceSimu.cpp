@@ -390,3 +390,18 @@ void GlWindow::setRotAuto(bool ctrl)
 {
     mRotAuto = ctrl;
 }
+
+void GlWindow::setSpringAmplitude(double ampl)
+{
+    aSpring.setAmplitude(ampl);
+}
+
+void GlWindow::setSpringConstant(double k)
+{
+    aSpring.setSpringConstant(k);
+}
+
+void GlWindow::setSpringMass(double mass)
+{
+    aSpring.setObjectMass(mass);
+}

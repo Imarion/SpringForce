@@ -37,6 +37,11 @@ public:
     // rotate
     void    setRotAuto(bool ctrl);
 
+    // spring
+    void    setSpringAmplitude(double ampl);
+    void    setSpringConstant(double k);
+    void    setSpringMass(double mass);
+
 private slots:
     void render();
 

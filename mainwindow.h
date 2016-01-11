@@ -30,6 +30,10 @@ private slots:
     void on_autoRotateRadioButton_clicked();
     void on_actionAbout_triggered();
 
+    void on_springForceSimulationAmplitudeEdit_textEdited(const QString &ampl);
+    void on_springForceSimulationConstantEdit_textEdited(const QString &arg1);
+    void on_springForceSimulationObjectMassEdit_textEdited(const QString &arg1);
+
 private:
     Ui::MainWindow *uiMainWindow;
     //Ui::About      *uiAboutDlg;

@@ -226,3 +226,25 @@ void MainWindow::on_actionAbout_triggered()
     uiAboutDlg.setupUi(&d);
     d.exec();
 }
+
+void MainWindow::on_springForceSimulationAmplitudeEdit_textEdited(const QString &arg1)
+{
+    QLocale dLoc;
+
+    MyGlWindow->setSpringAmplitude(dLoc.toDouble(uiMainWindow->springForceSimulationAmplitudeEdit->text()));
+}
+
+void MainWindow::on_springForceSimulationConstantEdit_textEdited(const QString &arg1)
+{
+    QLocale dLoc;
+
+    MyGlWindow->setSpringConstant(dLoc.toDouble(uiMainWindow->springForceSimulationConstantEdit->text()));
+}
+
+void MainWindow::on_springForceSimulationObjectMassEdit_textEdited(const QString &arg1)
+{
+    QLocale dLoc;
+
+    MyGlWindow->setSpringMass(dLoc.toDouble(uiMainWindow->springForceSimulationObjectMassEdit->text()));
+}
+

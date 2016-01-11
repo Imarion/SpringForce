@@ -137,7 +137,7 @@ public:
         scaleButtonGroup->addButton(scaleAuto);
         scaleAuto->setObjectName(QStringLiteral("scaleAuto"));
         scaleAuto->setGeometry(QRect(30, 170, 82, 18));
-        scaleAuto->setChecked(true);
+        scaleAuto->setChecked(false);
         autoScaleEdit = new QLineEdit(centralwidget);
         autoScaleEdit->setObjectName(QStringLiteral("autoScaleEdit"));
         autoScaleEdit->setEnabled(false);
@@ -164,7 +164,7 @@ public:
         rotateButtonGroup->addButton(autoRotateRadioButton);
         autoRotateRadioButton->setObjectName(QStringLiteral("autoRotateRadioButton"));
         autoRotateRadioButton->setGeometry(QRect(40, 60, 82, 18));
-        autoRotateRadioButton->setChecked(false);
+        autoRotateRadioButton->setChecked(true);
         rotateFrame = new QFrame(centralwidget);
         rotateFrame->setObjectName(QStringLiteral("rotateFrame"));
         rotateFrame->setGeometry(QRect(10, 20, 120, 71));
@@ -177,7 +177,7 @@ public:
         rotateButtonGroup->addButton(manualRotateRadioButton);
         manualRotateRadioButton->setObjectName(QStringLiteral("manualRotateRadioButton"));
         manualRotateRadioButton->setGeometry(QRect(30, 20, 82, 18));
-        manualRotateRadioButton->setChecked(true);
+        manualRotateRadioButton->setChecked(false);
         springForceSimulationGroupBox = new QGroupBox(centralwidget);
         springForceSimulationGroupBox->setObjectName(QStringLiteral("springForceSimulationGroupBox"));
         springForceSimulationGroupBox->setGeometry(QRect(10, 220, 601, 161));
