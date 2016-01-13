@@ -30,6 +30,11 @@ GlWindow::GlWindow() : currentTimeMs(0), currentTimeS(0), mWaveFrontObject(WaveF
 {
 //    WaveFrontObject& mWaveFrontObject=WaveFrontObject::getInstance();
 
+    springSimuOn     = false;
+    applyOnTranslate = true;
+    applyOnScale     = false;
+    applyOnTexture   = false;
+
     mObjVertices  = NULL;
     mObjNormals   = NULL;
     mObjIndices   = NULL;
@@ -262,6 +267,7 @@ void GlWindow::render()
         QMatrix4x4 modelViewMatrix;
         QMatrix4x4 cameraMatrix;
         QVector3D  cameraPos(0.0f, 0.0f, 4.0f);
+        double     springMotion;
 
         cameraMatrix.perspective(50.0f, this->width()/this->height(), 0.1f, 1000.0f);        
         cameraMatrix.lookAt(cameraPos, QVector3D(0.0f, 0.0f, 0.0f), QVector3D(0.0f, 1.0f, 0.0f));
@@ -270,6 +276,14 @@ void GlWindow::render()
 
         //modelViewMatrix.translate(0.0f, 0.0f, -4.0f);
         modelViewMatrix.translate(mTransX, mTransY, mTransZ);
+        if (springSimuOn==true)
+        {
+            springMotion =aSpring.calcMotion((double)currentTimeS);
+            if (applyOnTranslate==true)
+            {
+               modelViewMatrix.translate(0.0f, springMotion, 0.0f);
+            }
+        }
         if (mRotAuto)
         {
             modelViewMatrix.rotate((float)currentTimeS * -21.0f, 1.0f, 0.0f, 0.0f);
@@ -281,7 +295,15 @@ void GlWindow::render()
             modelViewMatrix.rotate(mRotY, 0.0f, 1.0f, 0.0f);
             modelViewMatrix.rotate(mRotZ, 0.0f, 0.0f, 1.0f);
         }
-        modelViewMatrix.scale(mScaleX, mScaleY, mScaleZ);
+        if ((springSimuOn==true) && (applyOnScale==true))
+        {
+
+            modelViewMatrix.scale(mScaleX * springMotion, mScaleY * springMotion, mScaleZ * springMotion);
+        }
+        else
+        {
+            modelViewMatrix.scale(mScaleX, mScaleY, mScaleZ);
+        }
 
         glUniformMatrix4fv(model_location, 1, GL_FALSE, modelViewMatrix.constData());
 
@@ -404,4 +426,24 @@ void GlWindow::setSpringConstant(double k)
 void GlWindow::setSpringMass(double mass)
 {
     aSpring.setObjectMass(mass);
+}
+
+void GlWindow::setSpringSimuStatus(bool status)
+{
+    springSimuOn = status;
+}
+
+bool GlWindow::setApplyOnTranslate(bool status)
+{
+    applyOnTranslate = status;
+}
+
+bool GlWindow::setApplyOnScale(bool status)
+{
+    applyOnScale = status;
+}
+
+bool GlWindow::setApplyOnTexture(bool status)
+{
+    applyOnTexture = status;
 }

@@ -248,3 +248,28 @@ void MainWindow::on_springForceSimulationObjectMassEdit_textEdited(const QString
     MyGlWindow->setSpringMass(dLoc.toDouble(uiMainWindow->springForceSimulationObjectMassEdit->text()));
 }
 
+
+void MainWindow::on_springForceSimulationOn_clicked()
+{
+    MyGlWindow->setSpringSimuStatus(true);
+}
+
+void MainWindow::on_springForceSimulationOff_clicked()
+{
+    MyGlWindow->setSpringSimuStatus(false);
+}
+
+void MainWindow::on_springForceSimulationApplyOnTranslationCb_stateChanged(int arg1)
+{
+    MyGlWindow->setApplyOnTranslate(arg1 == Qt::Checked);
+}
+
+void MainWindow::on_springForceSimulationApplyOnScaleCb_stateChanged(int arg1)
+{
+    MyGlWindow->setApplyOnScale(arg1 == Qt::Checked);
+}
+
+void MainWindow::on_springForceSimulationApplyOnTextureCb_stateChanged(int arg1)
+{
+    MyGlWindow->setApplyOnTexture(arg1 == Qt::Checked);
+}

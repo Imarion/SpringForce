@@ -34,6 +34,16 @@ private slots:
     void on_springForceSimulationConstantEdit_textEdited(const QString &arg1);
     void on_springForceSimulationObjectMassEdit_textEdited(const QString &arg1);
 
+    void on_springForceSimulationOn_clicked();
+
+    void on_springForceSimulationOff_clicked();    
+
+    void on_springForceSimulationApplyOnTranslationCb_stateChanged(int arg1);
+
+    void on_springForceSimulationApplyOnScaleCb_stateChanged(int arg1);
+
+    void on_springForceSimulationApplyOnTextureCb_stateChanged(int arg1);
+
 private:
     Ui::MainWindow *uiMainWindow;
     //Ui::About      *uiAboutDlg;

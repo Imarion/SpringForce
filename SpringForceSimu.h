@@ -41,6 +41,10 @@ public:
     void    setSpringAmplitude(double ampl);
     void    setSpringConstant(double k);
     void    setSpringMass(double mass);
+    void    setSpringSimuStatus(bool status);
+    bool    setApplyOnTranslate(bool status);
+    bool    setApplyOnScale(bool status);
+    bool    setApplyOnTexture(bool status);
 
 private slots:
     void render();
@@ -93,6 +97,10 @@ private:
     QString          mObjFileName;
     WaveFrontObject  &mWaveFrontObject;
 
-    // spring force
+    // spring force    
     SpringForce      aSpring;
+    bool    springSimuOn;
+    bool    applyOnTranslate;
+    bool    applyOnScale;
+    bool    applyOnTexture;
 };
